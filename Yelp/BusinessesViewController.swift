@@ -65,6 +65,10 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let businesses = businesses {
             return businesses.count
@@ -102,7 +106,12 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let navigationController = segue.destinationViewController as! UINavigationController
-        let filtersViewController = navigationController.topViewController as! FiltersViewController
-        filtersViewController.delegate = self
+        if sender!.title == "Filter" {
+            let filtersViewController = navigationController.topViewController as! FiltersViewController
+            filtersViewController.delegate = self
+        } else {
+            let mapViewController = navigationController.topViewController as! MapViewController
+            mapViewController.businesses = self.businesses
+        }
     }
 }

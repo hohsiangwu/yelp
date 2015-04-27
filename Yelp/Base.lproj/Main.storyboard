@@ -124,17 +124,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HMA-Vj-Mhj">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="sUr-2B-VqM">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N1o-Oh-9WL">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Filter">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="i2F-6o-J2K" kind="modal" id="Dg9-Fe-YiN"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="ipC-6Y-Szy">
+                            <connections>
+                                <segue destination="i2F-6o-J2K" kind="modal" id="zMf-n1-cdI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="iconmonstr-location-2-icon-24.png" id="neN-Jc-YFP">
+                            <connections>
+                                <segue destination="mml-To-5q0" kind="modal" id="OsD-mK-NuA"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -143,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1355" y="338"/>
+            <point key="canvasLocation" x="544" y="-100"/>
         </scene>
         <!--Filters-->
         <scene sceneID="S39-Zp-tfE">
@@ -223,7 +221,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQp-23-aO8">
                                 <rect key="frame" x="8" y="113" width="45" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -278,7 +276,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTR-Wg-DWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2198" y="338"/>
+            <point key="canvasLocation" x="1316" y="-100"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="JcP-21-YfJ">
+            <objects>
+                <viewController id="Lfx-jA-a5p" customClass="MapViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jUt-MN-oXz"/>
+                        <viewControllerLayoutGuide type="bottom" id="8tv-QE-Ql5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pe1-V8-82i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-n4-mV8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g3a-n4-mV8" firstAttribute="top" secondItem="Pe1-V8-82i" secondAttribute="top" id="N8P-6j-wol"/>
+                            <constraint firstItem="g3a-n4-mV8" firstAttribute="leading" secondItem="Pe1-V8-82i" secondAttribute="leading" id="XeC-ks-5lh"/>
+                            <constraint firstAttribute="trailing" secondItem="g3a-n4-mV8" secondAttribute="trailing" id="YlD-Ao-jpL"/>
+                            <constraint firstItem="8tv-QE-Ql5" firstAttribute="top" secondItem="g3a-n4-mV8" secondAttribute="bottom" id="ebQ-rh-u8E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="KQY-ng-SnV">
+                        <barButtonItem key="rightBarButtonItem" title="Back" id="kds-Jh-PZg">
+                            <connections>
+                                <action selector="onListButtonClicked:" destination="Lfx-jA-a5p" id="VA6-Cf-oMD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="listButton" destination="kds-Jh-PZg" id="4A3-vq-l3m"/>
+                        <outlet property="mapView" destination="g3a-n4-mV8" id="IZL-w4-lLO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lo-Dr-LOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1330" y="614"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lc2-Wi-6gO">
@@ -296,7 +334,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljh-Zj-yDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="338"/>
+            <point key="canvasLocation" x="159" y="-100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3UC-0D-KFC">
@@ -314,9 +352,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9j-Gl-jsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797" y="338"/>
+            <point key="canvasLocation" x="930" y="-100"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dlc-Na-zWf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mml-To-5q0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zj0-cY-xBh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lfx-jA-a5p" kind="relationship" relationship="rootViewController" id="1kj-cJ-kBA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m0I-8Q-U4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="614"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconmonstr-location-2-icon-24.png" width="24" height="24"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
